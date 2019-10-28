@@ -1,0 +1,25 @@
+ #!/bin/bash
+
+usage() {
+ echo "Usage: `basename $0` [module_name]"
+ exit 1
+}
+
+if [ -z "$1" ]; then
+  usage
+fi
+
+echo
+"""
+Module: "$1"
+Will execute:
+docker-compose down
+./gradlew :"$1":build -x test
+docker-compose build "$1"
+docker-compose up "$1"
+"""
+
+docker-compose down &&
+./gradlew :$1:build -x test &&
+docker-compose build $1 &&
+docker-compose up $1
