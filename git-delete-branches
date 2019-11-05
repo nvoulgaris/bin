@@ -8,7 +8,7 @@ if [ ! "$inside_git_repo" ]; then
 fi
 
 current_branch="$(git branch | grep ^* | tr -d "*" | tr -d " ")"
-get_local_branches="$(git branch --format='%(refname:short)' | grep -v "master" | grep -v "dev" | grep -v "$current_branch")"
+get_local_branches="$(git branch --format='%(refname:short)' | grep -v "master" | grep -v "develop" | grep -v "$current_branch")"
 
 local_branches=$(echo $get_local_branches | tr " " "\n")
 
