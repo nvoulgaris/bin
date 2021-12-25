@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd ~/personal/projects/blog
+cd ~/nvoulgaris/projects/blog
 code .
 hugo server --disableFastRender
